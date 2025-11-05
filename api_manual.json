@@ -3,6 +3,32 @@
   "utcp_version": "1.0.1",
   "tools": [
     {
+      "name": "get_price",
+      "description": "Retrieve Current Price of a Crypto Coin in EUR",
+      "inputs": {
+        "type": "object",
+        "properties": {
+          "coin_name": {"type": "string", "description": "Name of the crypto coin"}
+        },
+        "required": ["coin_name"]
+      },
+      "outputs": {
+        "type": "object",
+        "properties": {}
+      },
+      "tool_call_template": {
+        "call_template_type": "http",
+        "url": "https://api.coingecko.com/api/v3/simple/price?names={coin_name}&vs_currencies=eur",
+        "http_method": "GET",
+        "auth": {
+            "auth_type": "api_key",
+            "api_key": "${COINGECKO_API_KEY}",
+            "var_name": "x-cg-api-key",
+            "location": "header"
+        }
+      }
+    },
+    {
       "name": "get_temperature",
       "description": "Retrieve Current Temperature by Latitude and Longitude",
       "inputs": {

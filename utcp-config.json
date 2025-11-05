@@ -2,21 +2,14 @@
     "load_variables_from": [
         {
             "variable_loader_type": "dotenv",
-            "env_file_path": "/.env"
+            "env_file_path": ".env"
         }
     ],
     "manual_call_templates": [
         {
             "name": "service_catalog",
-            "call_template_type": "http",
-            "url": "http://127.0.0.1:3000/utcp",
-            "http_method": "GET",
-            "auth": {
-                "auth_type": "api_key",
-                "api_key": "$COINGECKO_API_KEY",
-                "var_name": "x-cg-api-key",
-                "location": "header"
-            }
+            "call_template_type": "text",
+            "file_path": "utcp.json"
         }
     ]
 }

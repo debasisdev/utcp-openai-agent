@@ -4,4 +4,4 @@ openai-agents
 utcp
 uvicorn[standard]
 fastapi
-utcp-http
+utcp-text

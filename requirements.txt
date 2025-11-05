@@ -1,0 +1,8 @@
+python-dotenv
+openai
+openai-agents
+utcp
+uvicorn[standard]
+fastapi
+aiohttp
+utcp-http

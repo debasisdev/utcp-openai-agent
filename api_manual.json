@@ -1,0 +1,51 @@
+{
+  "manual_version": "1.0.0",
+  "utcp_version": "1.0.1",
+  "tools": [
+    {
+      "name": "get_temperature",
+      "description": "Retrieve Current Temperature by Latitude and Longitude",
+      "inputs": {
+        "type": "object",
+        "properties": {
+          "city_latitude": {"type": "string", "description": "Latitude of the city"},
+          "city_longitude": {"type": "string", "description": "Longitude of the city"}
+        },
+        "required": ["city_latitude", "city_longitude"]
+      },
+      "outputs": {
+        "type": "object",
+        "properties": {
+          "latitude": {"type": "number"},
+          "longitude": {"type": "number"},
+          "generationtime_ms": {"type": "number"},
+          "utc_offset_seconds": {"type": "number"},
+          "timezone": {"type": "string"},
+          "timezone_abbreviation": {"type": "string"},
+          "elevation": {"type": "number"},
+          "current_units": {
+            "type": "object",
+            "properties": {
+              "time": {"type": "string"},
+              "interval": {"type": "string"},
+              "temperature_2m": {"type": "string"}
+            }
+          },
+          "current": {
+            "type": "object",
+            "properties": {
+              "time": {"type": "string"},
+              "interval": {"type": "number"},
+              "temperature_2m": {"type": "number"}
+            }
+          }
+        }
+      },
+      "tool_call_template": {
+        "call_template_type": "http",
+        "url": "https://api.open-meteo.com/v1/forecast?latitude={city_latitude}&longitude={city_longitude}&current=temperature_2m",
+        "http_method": "GET"
+      }
+    }
+  ]
+}

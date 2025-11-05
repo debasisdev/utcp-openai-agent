@@ -35,10 +35,6 @@ venv.bak/
 
 # Env files (dotenv)
 .env
-.env.*
-*.env
-.env.local
-.local.env
 
 # PyInstaller
 *.manifest

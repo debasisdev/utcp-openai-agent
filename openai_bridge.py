@@ -1,3 +1,4 @@
+import asyncio
 import json
 import re
 from agents import FunctionTool
@@ -10,7 +11,7 @@ async def initialize_utcp_client() -> UtcpClient:
     return client
 
 async def convert_openapi_spec():
-    with open('./openapi-spec.json') as fp:
+    with open('sample.json') as fp:
         data = json.load(fp)
         converter = OpenApiConverter(data)
         manual = converter.convert()
@@ -57,3 +58,6 @@ def utcp_tool_to_agent_tool(utcp_client: UtcpClient, tool: Tool) -> FunctionTool
         params_json_schema=params_schema,
         on_invoke_tool=tool_invoke_handler,
     )
+
+if __name__ == '__main__':
+    asyncio.run(convert_openapi_spec())

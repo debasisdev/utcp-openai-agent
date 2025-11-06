@@ -5,9 +5,9 @@ from cloudidp import setEnvironment
 from openai_bridge import initialize_utcp_client, utcp_tool_to_agent_tool
 
 async def main():
+    load_dotenv(".env")
     setEnvironment()
-    # load_dotenv(".env")
-        
+
     print("🚀 Initializing UTCP client...")
     try:
         utcp_client = await initialize_utcp_client()

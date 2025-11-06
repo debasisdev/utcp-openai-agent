@@ -1,11 +1,8 @@
 import os
-from dotenv import load_dotenv
 from requests_oauthlib import OAuth2Session
 from oauthlib.oauth2 import LegacyApplicationClient
 
 def get_oauth2_config():
-    load_dotenv(".env")
-
     client_cert = os.environ.get("CLIENT_CERTIFICATE")
     client_key = os.environ.get("CLIENT_PRIVATE_KEY")
 
@@ -34,7 +31,7 @@ def setEnvironment():
             timeout=5,
         )
         print(f"Token: {token['access_token'][:10]}")
-        os.environ["CIDP_TOKEN"] = token['access_token']
+        os.environ["service__catalog_CIDP_TOKEN"] = token['access_token']
     except Exception as e:
         print(f"Token request failed: {e}")
 

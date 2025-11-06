@@ -1,4 +1,3 @@
-import asyncio
 import json
 import re
 from agents import FunctionTool
@@ -18,13 +17,13 @@ async def convert_openapi_spec():
 
         print(manual.model_dump())
 
-def sanitize_tool_name(name: str) -> str:
+async def sanitize_tool_name(name: str) -> str:
     sanitized = re.sub(r'[^a-zA-Z0-9_-]', '_', name)
     if not sanitized or not re.match(r'^[a-zA-Z0-9]', sanitized):
         sanitized = 'tool_' + sanitized
     return sanitized
 
-def utcp_tool_to_agent_tool(utcp_client: UtcpClient, tool: Tool) -> FunctionTool:
+async def utcp_tool_to_agent_tool(utcp_client: UtcpClient, tool: Tool) -> FunctionTool:
     async def tool_invoke_handler(ctx, args: str) -> str:
         print(f"\n🤖 Agent is calling tool: {tool.name} with args: {args}")
         try:
@@ -58,6 +57,3 @@ def utcp_tool_to_agent_tool(utcp_client: UtcpClient, tool: Tool) -> FunctionTool
         params_json_schema=params_schema,
         on_invoke_tool=tool_invoke_handler,
     )
-
-if __name__ == '__main__':
-    asyncio.run(convert_openapi_spec())

@@ -50,6 +50,16 @@ python agent.py
 
 Type natural language prompts at the prompt and `exit` to quit.
 
+### Example Prompts
+
+- "Serena has 23541.67 USD in her bank account. How much will it be worth in Italy?"
+
+- "Serena is planning her holiday in Italy in July. She wants to exchange 500 American Dollars to Euros before traveling and would like to buy a gift for her friend depending on the weather. Her destination is Rome."
+
+- "She suddenly receives 0.45 bitcoin from a long lost lover. How much money she has now for the trip?"
+
+Note: The available commands depend on your UTCP tool configuration in `utcp.json`.
+
 ## Configuration
 
 Key configuration files:

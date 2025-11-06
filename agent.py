@@ -35,7 +35,7 @@ async def main():
         
         try:
             response_stream = await Runner.run(my_agent,user_input)
-            print(f"\n{response_stream.final_output}")
+            print(f"\n{response_stream.final_output}\n")
             
         except Exception as e:
             print(f"\nError occurred: {e}")

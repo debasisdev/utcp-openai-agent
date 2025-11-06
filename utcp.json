@@ -5,19 +5,14 @@
     {
       "name": "get_currency",
       "description": "Retrieve Currency Exchange Rates",
-      "inputs": {
+      "body": {
         "type": "object",
         "properties": {
-          "body": {
-            "type": "object",
-            "properties": {
-              "value": {"type": "number", "description": "Amount to be converted"},
-              "source_currency": {"type": "string", "description": "Source Currency Code as ISO-4217"},
-              "target_currency": {"type": "string", "description": "Target Currency Code as ISO-4217"}
-            },
-            "required": ["value", "source_currency", "target_currency"]
-          }
-        }
+          "value": {"type": "number", "description": "Amount to be converted"},
+          "source_currency": {"type": "string", "description": "Source Currency Code as ISO-4217"},
+          "target_currency": {"type": "string", "description": "Target Currency Code as ISO-4217"}
+        },
+        "required": ["value", "source_currency", "target_currency"]
       },
       "outputs": {
         "type": "object",

@@ -30,19 +30,15 @@ async def main():
     while True:
         user_input = input("> ")
         if user_input.lower() == "exit":
-            print("\n👋🏼 Goodbye!")
+            print("\n👋🏼 Ciao!")
             break
         
         try:
-            response_stream = await Runner.run(
-                my_agent,
-                user_input
-            )
-            
-            print(response_stream.final_output)
+            response_stream = await Runner.run(my_agent,user_input)
+            print(f"\n{response_stream.final_output}")
             
         except Exception as e:
-            print(f"\nerror occurred: {e}")
+            print(f"\nError occurred: {e}")
     
 
 if __name__ == "__main__":

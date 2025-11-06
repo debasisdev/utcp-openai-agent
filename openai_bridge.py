@@ -9,13 +9,13 @@ async def initialize_utcp_client() -> UtcpClient:
     client = await UtcpClient.create(config="./utcp-config.json")
     return client
 
-# async def convert_api():
-#     with open('./spec.json') as fp:
-#         data = json.load(fp)
-#         converter = OpenApiConverter(data)
-#         manual = converter.convert()
+async def convert_openapi_spec():
+    with open('./openapi-spec.json') as fp:
+        data = json.load(fp)
+        converter = OpenApiConverter(data)
+        manual = converter.convert()
 
-#         print(manual.model_dump())
+        print(manual.model_dump())
 
 def sanitize_tool_name(name: str) -> str:
     sanitized = re.sub(r'[^a-zA-Z0-9_-]', '_', name)

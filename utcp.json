@@ -3,6 +3,45 @@
   "utcp_version": "1.0.1",
   "tools": [
     {
+      "name": "get_currency",
+      "description": "Retrieve Currency Exchange Rates",
+      "inputs": {
+        "type": "object",
+        "properties": {
+            "value": {"type": "number", "description": "Amount to be converted"},
+            "source_currency": {"type": "string", "description": "Source Currency Code as ISO-4217"},
+            "target_currency": {"type": "string", "description": "Target Currency Code as ISO-4217"}
+        },
+        "required": ["value", "source_currency", "target_currency"]
+      },
+      "outputs": {
+        "type": "object",
+        "properties": {
+          "value": {"type": "number"},
+          "target_currency": {"type": "string"},
+          "exchange_rate": {"type": "number"},
+          "exchange_date": {"type": "string"}
+        }
+      },
+      "tool_call_template": {
+        "call_template_type": "http",
+        "url": "https://oemil-qs.volkswagen.de/services/converters/currency",
+        "http_method": "POST",
+        "headers": {
+          "Authorization": "Bearer ${CIDP_TOKEN}",
+          "Content-Type": "application/json",
+          "oemil-trace-id": "application/json",
+          "oemil-client-app": "OEM.IL-Testers",
+          "oemil-api-version": "v1.6",
+          "oemil-client-brand": "Volkswagen",
+          "oemil-client-country": "DE",
+          "oemil-lee-name": "000100",
+          "oemil-lee-country": "DE"
+        },
+        "body_field": "body"
+      }
+    },
+    {
       "name": "get_price",
       "description": "Retrieve Current Price of a Crypto Coin in EUR",
       "inputs": {

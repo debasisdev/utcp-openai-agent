@@ -1,10 +1,12 @@
 import asyncio
 from dotenv import load_dotenv
 from agents import Agent, Runner
+from cloudidp import setEnvironment
 from openai_bridge import initialize_utcp_client, utcp_tool_to_agent_tool
 
 async def main():
-    load_dotenv(".env")
+    setEnvironment()
+    # load_dotenv(".env")
         
     print("🚀 Initializing UTCP client...")
     try:

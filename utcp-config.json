@@ -1,6 +1,7 @@
 {
     "variables": {
-        "service__catalog_COINGECKO_API_KEY": "$COINGECKO_API_KEY"
+        "service__catalog_COINGECKO_API_KEY": "$COINGECKO_API_KEY",
+        "service__catalog_CIDP_TOKEN": "$CIDP_TOKEN"
     },
     "load_variables_from": [
         {

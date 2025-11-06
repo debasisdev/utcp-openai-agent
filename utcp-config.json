@@ -1,4 +1,7 @@
 {
+    "variables": {
+        "service__catalog_COINGECKO_API_KEY": "$COINGECKO_API_KEY"
+    },
     "load_variables_from": [
         {
             "variable_loader_type": "dotenv",

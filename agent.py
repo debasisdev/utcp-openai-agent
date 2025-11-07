@@ -1,8 +1,22 @@
 import asyncio
-from dotenv import load_dotenv
+import logging
+import sys
 from agents import Agent, Runner
+from dotenv import load_dotenv
 from utils.cloudidp import setEnvironment
 from utils.openai_bridge import initialize_utcp_client, utcp_tool_to_agent_tool
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(name)s:%(lineno)d - %(message)s',
+    handlers=[
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+
+# Disable UTCP library logging
+logging.getLogger("utcp").setLevel(logging.WARNING)
 
 async def main():
     load_dotenv(".env")

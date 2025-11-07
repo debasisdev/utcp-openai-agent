@@ -54,7 +54,7 @@ Type natural language prompts at the prompt and `exit` to quit, e.g.,
 
 - `Serena is planning her holiday in Italy in July. She wants to exchange 500 American Dollars to Euros before traveling and would like to buy a gift for her friend depending on the weather. Her destination is Rome.`
 
-- `She suddenly receives 0.45 bitcoin from a long lost lover. How much money she has now for the trip?`
+- `She suddenly receives 0.45 bitcoin from a long lost lover. How much money she has now for the trip in Euros?`
 
 - `Suggest one most recommended place to visit in Rome.`
 

@@ -3,6 +3,7 @@ openai
 openai-agents
 utcp
 utcp-text
+utcp-http
 requests_oauthlib
 oauthlib
 requests

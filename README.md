@@ -48,15 +48,15 @@ cp example.env .env
 python agent.py
 ```
 
-Type natural language prompts at the prompt and `exit` to quit.
-
-### Example Prompts
+Type natural language prompts at the prompt and `exit` to quit, e.g.,
 
 - `Serena has 23541.67 USD in her bank account. How much will it be worth in Italy?`
 
 - `Serena is planning her holiday in Italy in July. She wants to exchange 500 American Dollars to Euros before traveling and would like to buy a gift for her friend depending on the weather. Her destination is Rome.`
 
 - `She suddenly receives 0.45 bitcoin from a long lost lover. How much money she has now for the trip?`
+
+- `Suggest one most recommended place to visit in Rome.`
 
 Note: The available commands depend on your UTCP tool configuration in `utcp.json`.
 
@@ -66,6 +66,25 @@ Key configuration files:
 
 - `utcp-config.json`: UTCP variables, variable loaders, and manual call templates
 - `utcp.json`: Service catalog and tool definitions
+
+The agent follows a structured workflow using LangGraph, a library for building stateful, multi-actor applications with LLMs.
+
+1.  **Analyze Task**: Understands the user's query and formulates the current task.
+2.  **Search Tools**: Uses UTCP to find relevant tools for the task.
+3.  **Decide Action**: Determines whether to call tools or respond directly.
+4.  **Execute Tools**: Calls the selected tool with appropriate arguments.
+5.  **Respond**: Formats and returns the final response to the user.
+
+```mermaid
+graph TD
+    A[User Input] --> B[Analyze Task by LLMAgent]
+    B --> C[LLMAgent Searches Tools]
+    C --> D{LLMAgent Decides Action}
+    D -->|Call Tool| F[Execute Tools]
+    D -->|Respond| G[Generate Response]
+    F --> B
+    G --> H[End]
+```
 
 ## License
 

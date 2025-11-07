@@ -34,6 +34,7 @@ python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
+For Proxy and SSL problems, run `pip install pip-system-certs`.
 
 3. Copy the example environment file and update values:
 

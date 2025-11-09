@@ -36,7 +36,7 @@
         "headers": {
           "Authorization": "Bearer ${CIDP_TOKEN}",
           "Content-Type": "application/json",
-          "oemil-trace-id": "application/json",
+          "oemil-trace-id": "mcp-utcp-tester-dkar",
           "oemil-client-app": "OEM.IL-Testers",
           "oemil-api-version": "v1.6",
           "oemil-client-brand": "Volkswagen",

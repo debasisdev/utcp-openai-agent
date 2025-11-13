@@ -3,8 +3,8 @@ import logging
 import sys
 from agents import Agent, Runner
 from dotenv import load_dotenv
-from utils.cloudidp import setEnvironment
-from utils.openai_bridge import initialize_utcp_client, utcp_tool_to_agent_tool
+from utils.idpauth import setEnvironment
+from utils.openai import initialize_utcp_client, utcp_tool_to_agent_tool
 
 # Configure logging
 logging.basicConfig(

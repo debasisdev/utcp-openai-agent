@@ -17,6 +17,16 @@ A Python-based AI assistant that leverages OpenAI's GPT models with UTCP (Univer
 - Python 3.8+
 - OpenAI API access (API key set in `.env`)
 - UTCP service configuration (see `utcp-config.json`)
+- CoinGecko API access (API key set in `.env`)
+- OAuth2 Call to Proprietary Private APIs require respective IdP Configurations
+
+To generate `client.crt` and `client.key` from the .p12 Certificates, use the following command
+
+```bash
+openssl pkcs12 -in <<name_of_cert>>.p12 -nodes -nocerts -out client.key
+openssl pkcs12 -in <<name_of_cert>>.p12 -clcerts -nokeys -out client.crt
+openssl pkcs12 -in <<name_of_cert>>.p12 -cacerts -nokeys -out ca.crt
+```
 
 ## Quick Start
 

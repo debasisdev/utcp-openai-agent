@@ -23,9 +23,9 @@ A Python-based AI assistant that leverages OpenAI's GPT models with UTCP (Univer
 To generate `client.crt` and `client.key` from the .p12 Certificates, use the following command
 
 ```bash
-openssl pkcs12 -in <<name_of_cert>>.p12 -nodes -nocerts -out client.key
-openssl pkcs12 -in <<name_of_cert>>.p12 -clcerts -nokeys -out client.crt
-openssl pkcs12 -in <<name_of_cert>>.p12 -cacerts -nokeys -out ca.crt
+openssl pkcs12 -in <name_of_cert>.p12 -nodes -nocerts -out client.key
+openssl pkcs12 -in <name_of_cert>.p12 -clcerts -nokeys -out client.crt
+openssl pkcs12 -in <name_of_cert>.p12 -cacerts -nokeys -out ca.crt
 ```
 
 ## Quick Start
